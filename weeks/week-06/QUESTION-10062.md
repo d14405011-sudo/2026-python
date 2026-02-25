@@ -8,15 +8,24 @@
 
 ## 題目敘述
 
-N (2 <= N <= 80,000) cows have unique brands in the range 1..N. In a spectacular display of poor judgment, they visited the neighborhood 'watering hole' and drank a few too many beers before dinner. When it was time to line up for their evening meal, they did not line up in the required ascending numerical order of their brands.Regrettably, FJ does not have a way to sort them. Furthermore, he's not very good at observing problems. Instead of writing down each cow's brand, he determined a rather silly statistic: For each cow in line, he knows the number of cows that precede that cow in line that do, in fact, have smaller brands than that cow.Given this data, tell FJ the exact ordering of the cows.
+有 N 頭（2 ≤ N ≤ 80,000）乳牛，每頭乳牛都有一個在 1 到 N 範圍內的獨特編號。
+牠們在晚餐前去附近的「飲水站」喝了太多啤酒，一時判斷失準。
+排隊吃晚飯時，牠們沒有依照編號從小到大的正確順序排列。
+不幸的是，農夫 FJ 無法直接幫牠們排序，而且他的觀察能力也不太好。
+他沒有記錄每頭乳牛的編號，而是統計了一個奇怪的數據：對於隊伍中的每頭乳牛，他知道在該乳牛前面、編號比它小的乳牛有幾頭。
+請根據這份資料，告訴 FJ 乳牛的正確排列順序。
 
 ## 輸入說明
 
-* Line 1: A single integer, N* Lines 2..N: These N-1 lines describe the number of cows that precede a given cow in line and have brands smaller than that cow. Of course, no cows precede the first cow in line, so she is not listed. Line 2 of the input describes the number of preceding cows whose brands are smaller than the cow in slot #2; line 3 describes the number of preceding cows whose brands are smaller than the cow in slot #3; and so on.
+- 第 1 行：一個整數 N。
+- 第 2 至 N 行：共 N-1 行，每行描述該位置的乳牛前面、編號比它小的乳牛數量。
+  第一頭乳牛前面沒有任何乳牛，因此不列出。
+  第 2 行描述第 2 個位置的乳牛前面編號較小的牛數；第 3 行描述第 3 個位置的情形，以此類推。
 
 ## 輸出說明
 
-* Lines 1..N: Each of the N lines of output tells the brand of a cow in line. Line #1 of the output tells the brand of the first cow in line; line 2 tells the brand of the second cow; and so on.
+- 共 N 行，每行輸出該位置乳牛的編號。
+  第 1 行為隊伍第 1 個位置的乳牛編號，第 2 行為第 2 個位置，以此類推。
 
 ---
 

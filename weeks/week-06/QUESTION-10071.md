@@ -8,15 +8,18 @@
 
 ## 題目敘述
 
-You are given a set S of integers between -30000 and 30000 (inclusive).Find the total number of sextuplesthat satisfy:
+給定一個整數集合 S，其元素均介於 -30000 到 30000 之間（含首尾）。
+請計算满足条件的六元組數量：a + b + c + d + e = f，其中 a、b、c、d、e、f 均屬於 S（可重複使用）。
 
 ## 輸入說明
 
-The first line contains integer N (1 ≤ N ≤ 100), the size of a set S.Elements of S are given in the next N lines, one integer per line. Given numbers will be distinct.
+第一行包含一個整數 N（1 ≤ N ≤ 100），代表集合 S 的元素個數。
+接下來的 N 行，每行一個整數，為 S 的元素。
+所有數字均不重複。
 
 ## 輸出說明
 
-Output the total number of plausible sextuples.
+輸出符合條件的六元組總數量。
 
 ---
 
