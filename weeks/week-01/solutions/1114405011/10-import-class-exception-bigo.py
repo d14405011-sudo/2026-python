@@ -47,7 +47,7 @@ def demo_exception():
 
 def demo_bigo_hint():
     print("[Big-O] list.append 通常是 O(1)")
-    print("[Big-O] list 切片通常是 O(N)")
+    print("[Big-O] list 切片長度為 k，時間與空間成本是 O(k)，最壞情況 (k = N) 才是 O(N)")
 
 
 def main():
