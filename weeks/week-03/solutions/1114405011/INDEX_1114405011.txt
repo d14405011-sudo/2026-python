@@ -3,52 +3,52 @@
 產生時間: 2026-03-12 00:57:13
 
 [題號 100]
-- q100.py
-- q100-easy.py
-- q100-Hand-typed.py
-- test_q100.py
-- test_q100_hand_typed.py
+- 100/q100.py
+- 100/q100-easy.py
+- 100/q100-Hand-typed.py
+- 100/test_q100.py
+- 100/test_q100_hand_typed.py
 - LOG:
-  - logs/test_results.txt
-  - logs/test_results_hand_typed.txt
+  - 100/logs/test_results.txt
+  - 100/logs/test_results_hand_typed.txt
 
 [題號 118]
-- q118.py
-- q118-easy.py
-- q118-Hand-typed.py
-- test_q118.py
-- test_q118_hand_typed.py
+- 118/q118.py
+- 118/q118-easy.py
+- 118/q118-Hand-typed.py
+- 118/test_q118.py
+- 118/test_q118_hand_typed.py
 - LOG:
-  - logs/test_results_q118.txt
-  - logs/test_results_q118_hand_typed.txt
+  - 118/logs/test_results_q118.txt
+  - 118/logs/test_results_q118_hand_typed.txt
 
 [題號 272]
-- q272.py
-- q272-easy.py
-- q272-Hand-typed.py
-- test_q272.py
-- test_q272_hand_typed.py
+- 272/q272.py
+- 272/q272-easy.py
+- 272/q272-Hand-typed.py
+- 272/test_q272.py
+- 272/test_q272_hand_typed.py
 - LOG:
-  - logs/test_results_q272.txt
-  - logs/test_results_q272_hand_typed.txt
+  - 272/logs/test_results_q272.txt
+  - 272/logs/test_results_q272_hand_typed.txt
 
 [題號 299]
-- q299.py
-- q299-easy.py
-- q299-Hand-typed.py
-- test_q299.py
-- test_q299_hand_typed.py
+- 299/q299.py
+- 299/q299-easy.py
+- 299/q299-Hand-typed.py
+- 299/test_q299.py
+- 299/test_q299_hand_typed.py
 - LOG:
-  - logs/test_results_q299.txt
-  - logs/test_results_q299_hand_typed.txt
+  - 299/logs/test_results_q299.txt
+  - 299/logs/test_results_q299_hand_typed.txt
 
 [題號 490]
-- q490.py
-- q490-easy.py
-- q490-Hand-typed.py
-- test_q490.py
-- test_q490_hand_typed.py
+- 490/q490.py
+- 490/q490-easy.py
+- 490/q490-Hand-typed.py
+- 490/test_q490.py
+- 490/test_q490_hand_typed.py
 - LOG:
-  - logs/test_results_q490.txt
-  - logs/test_results_q490_hand_typed.txt
+  - 490/logs/test_results_q490.txt
+  - 490/logs/test_results_q490_hand_typed.txt
 
