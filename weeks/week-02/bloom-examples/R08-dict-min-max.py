@@ -2,8 +2,9 @@
 
 prices = {'ACME': 45.23, 'AAPL': 612.78, 'FB': 10.75}
 
-min(zip(prices.values(), prices.keys()))
-max(zip(prices.values(), prices.keys()))
-sorted(zip(prices.values(), prices.keys()))
+print("原始價格字典：", prices)
+print("最低價格（value, key）：", min(zip(prices.values(), prices.keys())))
+print("最高價格（value, key）：", max(zip(prices.values(), prices.keys())))
+print("依價格排序（value, key）：", sorted(zip(prices.values(), prices.keys())))
 
-min(prices, key=lambda k: prices[k])  # 回傳 key
+print("價格最低的股票代號：", min(prices, key=lambda k: prices[k]))

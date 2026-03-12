@@ -3,6 +3,8 @@
 from operator import itemgetter
 
 rows = [{'fname': 'Brian', 'uid': 1003}, {'fname': 'John', 'uid': 1001}]
-sorted(rows, key=itemgetter('fname'))
-sorted(rows, key=itemgetter('uid'))
-sorted(rows, key=itemgetter('uid', 'fname'))
+
+print("原始資料：", rows)
+print("依 fname 排序：", sorted(rows, key=itemgetter('fname')))
+print("依 uid 排序：", sorted(rows, key=itemgetter('uid')))
+print("依 uid、fname 排序：", sorted(rows, key=itemgetter('uid', 'fname')))
