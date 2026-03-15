@@ -608,10 +608,15 @@ class Game:
 
         self.screen.fill(BG)
         if scaled_w > window_w or scaled_h > window_h:
-            crop_x = max(0, (scaled_w - window_w) // 2)
-            crop_y = max(0, (scaled_h - window_h) // 2)
-            cropped = scaled.subsurface((crop_x, crop_y, window_w, window_h))
-            self.screen.blit(cropped, (0, 0))
+            # Crop to the intersection of the scaled surface and the window size
+            crop_w = min(window_w, scaled_w)
+            crop_h = min(window_h, scaled_h)
+            crop_x = max(0, (scaled_w - crop_w) // 2)
+            crop_y = max(0, (scaled_h - crop_h) // 2)
+            cropped = scaled.subsurface((crop_x, crop_y, crop_w, crop_h))
+            blit_x = (window_w - crop_w) // 2
+            blit_y = (window_h - crop_h) // 2
+            self.screen.blit(cropped, (blit_x, blit_y))
         else:
             x = (window_w - scaled_w) // 2
             y = (window_h - scaled_h) // 2
