@@ -1,0 +1,9 @@
+test_multiple_carries (weeks.week-04.solutions.1114405011.10035.test_q10035.TestQ10035.test_multiple_carries) ... ok
+test_no_carry (weeks.week-04.solutions.1114405011.10035.test_q10035.TestQ10035.test_no_carry) ... ok
+test_one_carry (weeks.week-04.solutions.1114405011.10035.test_q10035.TestQ10035.test_one_carry) ... ok
+test_stop_at_zero_zero (weeks.week-04.solutions.1114405011.10035.test_q10035.TestQ10035.test_stop_at_zero_zero) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.000s
+
+OK

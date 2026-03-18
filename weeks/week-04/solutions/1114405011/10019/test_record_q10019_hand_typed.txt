@@ -1,0 +1,9 @@
+test_basic (weeks.week-04.solutions.1114405011.10019.test_q10019_hand_typed.TestQ10019HandTyped.test_basic) ... ok
+test_ignore_blank_lines (weeks.week-04.solutions.1114405011.10019.test_q10019_hand_typed.TestQ10019HandTyped.test_ignore_blank_lines) ... ok
+test_large_numbers (weeks.week-04.solutions.1114405011.10019.test_q10019_hand_typed.TestQ10019HandTyped.test_large_numbers) ... ok
+test_reverse_order (weeks.week-04.solutions.1114405011.10019.test_q10019_hand_typed.TestQ10019HandTyped.test_reverse_order) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.000s
+
+OK
