@@ -1,0 +1,9 @@
+test_multi_case_format (weeks.week-04.solutions.1114405011.948.test_q948_hand_typed.TestQ948HandTyped.test_multi_case_format) ... ok
+test_single_ambiguous (weeks.week-04.solutions.1114405011.948.test_q948_hand_typed.TestQ948HandTyped.test_single_ambiguous) ... ok
+test_single_balance_unique (weeks.week-04.solutions.1114405011.948.test_q948_hand_typed.TestQ948HandTyped.test_single_balance_unique) ... ok
+test_unique_heavy (weeks.week-04.solutions.1114405011.948.test_q948_hand_typed.TestQ948HandTyped.test_unique_heavy) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.000s
+
+OK

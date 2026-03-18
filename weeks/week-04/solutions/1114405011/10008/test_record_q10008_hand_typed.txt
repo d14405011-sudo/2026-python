@@ -1,0 +1,9 @@
+test_case_insensitive (weeks.week-04.solutions.1114405011.10008.test_q10008_hand_typed.TestQ10008HandTyped.test_case_insensitive) ... ok
+test_ignore_non_letters (weeks.week-04.solutions.1114405011.10008.test_q10008_hand_typed.TestQ10008HandTyped.test_ignore_non_letters) ... ok
+test_mixed_frequency (weeks.week-04.solutions.1114405011.10008.test_q10008_hand_typed.TestQ10008HandTyped.test_mixed_frequency) ... ok
+test_sorting_rule (weeks.week-04.solutions.1114405011.10008.test_q10008_hand_typed.TestQ10008HandTyped.test_sorting_rule) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.000s
+
+OK
