@@ -26,9 +26,13 @@ UVA 10057 - The Lost Circle (密碼謎)
 def solve_q10057():
     """主程式：處理多組測試資料。"""
     while True:
-        n = int(input())
-        if n == 0:
+        try:
+            n = int(input())
+        except EOFError:
             break
+        if n == 0:
+            # 題目為「讀到 EOF 為止」，若輸入中出現 0，視為空測資直接略過
+            continue
 
         numbers = [int(input()) for _ in range(n)]
         numbers.sort()
@@ -43,7 +47,7 @@ def solve_q10057():
             # 偶數個：下中位數到上中位數都可行
             lower_median = numbers[n // 2 - 1]
             upper_median = numbers[n // 2]
-            min_values_count = numbers.count(lower_median)
+            min_values_count = sum(1 for x in numbers if lower_median <= x <= upper_median)
             optimal_positions = upper_median - lower_median + 1
             print(lower_median, min_values_count, optimal_positions)
 

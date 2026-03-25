@@ -13,7 +13,10 @@ def main():
 
         denominator = 1.0 - (q ** n)
 
-        probability = numerator / denominator
+        if p == 0.0 or denominator == 0.0:
+            probability = 0.0
+        else:
+            probability = numerator / denominator
 
         print(f"{probability:.4f}")
 

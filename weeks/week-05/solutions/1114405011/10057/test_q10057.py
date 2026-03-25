@@ -1,5 +1,5 @@
 """
-UVA 10057 - The Lost Cricle (密碼謎) 測試程式
+UVA 10057 - The Lost Circle (密碼謎) 測試程式
 題目：找到最小化距離和的位置，並計算滿足條件的位置和方案數
 """
 
@@ -14,16 +14,16 @@ def solve_q10057():
     """
     while True:
         try:
-            n = int(input())
-            if n == 0:
-                break
+            # 讀取每一組測資的數量，直到 EOF 結束
+            n_line = input()
+            if not n_line:
+                # 略過空行
+                continue
+            n = int(n_line)
             
             numbers = []
             for _ in range(n):
                 numbers.append(int(input()))
-            
-            if n == 0:
-                continue
             
             # 排序
             numbers.sort()
@@ -107,12 +107,12 @@ class TestQ10057(unittest.TestCase):
 0"""
         # 中位數是 2 和 8，所以 A 可以是 2, 3, ..., 8
         # 距離和 = |1-2| + |2-2| + |8-2| + |9-2| = 1 + 0 + 6 + 7 = 14
-        # 最小值個數：1（只有一個 2 達到 0）
+        # 介於兩個中位數 [2, 8] 的輸入數字個數：2（2 與 8）
         # 最優位置個數：7（2 到 8 的整數）
         result = self.solve_with_input(input_data).split('\n')[0]
         parts = result.split()
         self.assertEqual(parts[0], "2")
-        self.assertEqual(parts[1], "1")
+        self.assertEqual(parts[1], "2")
         self.assertEqual(parts[2], "7")
     
     def test_duplicate_numbers(self):

@@ -2,8 +2,9 @@
 
 def solve():
     while True:
-        n = int(input())
-        if n == 0:
+        try:
+            n = int(input())
+        except EOFError:
             break
         
         nums = [int(input()) for _ in range(n)]
@@ -19,7 +20,7 @@ def solve():
             lower = nums[n // 2 - 1]
             upper = nums[n // 2]
             count = upper - lower + 1
-            min_count = nums.count(lower)
+            min_count = sum(1 for x in nums if lower <= x <= upper)
             print(lower, min_count, count)
 
 solve()

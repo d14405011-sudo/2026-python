@@ -1,13 +1,24 @@
 def main():
     while True:
-        n = int(input())
-
-        if n == 0:
+        # Read number of elements; stop cleanly at EOF
+        try:
+            line = input()
+        except EOFError:
             break
+
+        if not line:
+            # Skip empty lines, if any
+            continue
+
+        n = int(line)
 
         numbers = []
         for i in range(n):
-            x = int(input())
+            try:
+                x = int(input())
+            except EOFError:
+                # Unexpected EOF in the middle of a test case; stop processing
+                return
             numbers.append(x)
 
         numbers.sort()
