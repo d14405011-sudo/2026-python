@@ -6,61 +6,7 @@ UVA 10057 - The Lost Circle (密碼謎) 測試程式
 import unittest
 from io import StringIO
 import sys
-
-
-def solve_q10057():
-    """
-    解決 UVA 10057 - 密碼謎
-    """
-    while True:
-        try:
-            # 讀取每一組測資的數量，直到 EOF 結束
-            n_line = input()
-            if not n_line:
-                # 略過空行
-                continue
-            n = int(n_line)
-            
-            numbers = []
-            for _ in range(n):
-                numbers.append(int(input()))
-            
-            # 排序
-            numbers.sort()
-            
-            # 找到最優位置
-            if n % 2 == 1:
-                # 奇數個，中位數是唯一最優解
-                median = numbers[n // 2]
-                min_sum = sum(abs(x - median) for x in numbers)
-                
-                # 計算有多少個數字等於中位數（這些是達到最小距離的數字）
-                min_values_count = numbers.count(median)
-                
-                # 最優位置的個數
-                optimal_positions = 1
-                
-                print(median, min_values_count, optimal_positions)
-            else:
-                # 偶數個，兩個中位數之間的所有整數都是最優解
-                lower_median = numbers[n // 2 - 1]
-                upper_median = numbers[n // 2]
-                
-                # 計算最小距離和
-                min_sum = sum(abs(x - lower_median) for x in numbers)
-                
-                # 最小值的個數
-                min_values_count = numbers.count(lower_median)
-                
-                # 最優位置的個數
-                optimal_positions = upper_median - lower_median + 1
-                
-                print(lower_median, min_values_count, optimal_positions)
-        
-        except EOFError:
-            break
-
-
+from q10057 import solve_q10057
 class TestQ10057(unittest.TestCase):
     """Q10057 的單元測試"""
     
