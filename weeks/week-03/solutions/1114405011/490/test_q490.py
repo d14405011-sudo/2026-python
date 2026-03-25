@@ -31,7 +31,7 @@ class TestRotateCw(unittest.TestCase):
     def test_single_row(self):
         """單一行：旋轉後每個字元各自成一行，垂直排列"""
         result = rotate_cw(["ABC"])
-        # A 在最右，C 在最左：結果由下到上 → [C, B, A]
+        # 單行 "ABC" 旋轉 90° 順時針後，A 在最上、C 在最下：由上到下 → [A, B, C]
         self.assertEqual(result, ["A", "B", "C"])
 
     def test_single_column(self):
