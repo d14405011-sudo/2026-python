@@ -7,7 +7,11 @@ def solve():
         n, i = int(n), int(i)
         
         # P_i = p * (1-p)^(i-1) / (1 - (1-p)^n)
-        prob = (p * ((1 - p) ** (i - 1))) / (1 - ((1 - p) ** n))
+        denom = 1 - ((1 - p) ** n)
+        if denom == 0:
+            prob = 0.0
+        else:
+            prob = (p * ((1 - p) ** (i - 1))) / denom
         print(f"{prob:.4f}")
 
 solve()

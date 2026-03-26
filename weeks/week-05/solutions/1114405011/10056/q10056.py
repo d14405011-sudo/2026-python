@@ -46,7 +46,11 @@ def solve_q10056():
         numerator = p * ((1 - p) ** (i - 1))  # 分子
         denominator = 1 - ((1 - p) ** n)       # 分母
         
-        probability = numerator / denominator
+        # 當 p = 0 或分母接近 0 時，機率為 0，避免除以 0
+        if p == 0 or denominator == 0:
+            probability = 0.0
+        else:
+            probability = numerator / denominator
         
         # 輸出四位小數
         print(f"{probability:.4f}")
