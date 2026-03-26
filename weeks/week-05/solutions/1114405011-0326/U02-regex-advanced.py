@@ -6,28 +6,30 @@ import timeit
 from calendar import month_abbr
 
 # ── 第 2.4 節：預編譯正則表達式以提高效率 ──────────────────────────────
-# 每次執行正則表達式比較慢，預先使用 re.compile() 編譯的正則物件快速得多
+# 直接傳入字串 pattern 時，re 會用內建快取幫你管理「是否需要重編譯」
+# 在大量／多樣 pattern 或需重複使用同一 pattern 時，顯式 re.compile() 可避免快取 miss，
+# 並讓程式碼可讀性、可控性更好
 
 text = "Today is 11/27/2012. PyCon starts 3/13/2013."
 datepat = re.compile(r"(\d+)/(\d+)/(\d+)")  # 預先編譯正則表達式（查找日期格式：XX/XX/XXXX）
 
 
-def using_module():  # 每次都新預編譯
+def using_module():  # 直接使用模組級 API，由 re 內建快取決定是否重編譯
     return re.findall(r"(\d+)/(\d+)/(\d+)", text)
 
 
-def using_compiled():  # 使用預編譯的正則物件
+def using_compiled():  # 使用預編譯的正則物件，適合同一 pattern 被多次重用
     return datepat.findall(text)
 
 
-# 效能比較：預編譯快許多倍
+# 效能比較：預編譯在大量重複使用時通常會更快
 t1 = timeit.timeit(using_module, number=50_000)
 t2 = timeit.timeit(using_compiled, number=50_000)
 print(f"直接呼叫: {t1:.3f}s  預編譯: {t2:.3f}s")
 
 
 # ── 第 2.5 節：sub() 回呼函數的高級用法 ────────────────────────────────
-# re.sub() 不僅使用二批主引數，可傳你一個回呼函數，在符合不同時進行替換
+# re.sub(pattern, repl, string) 中的 repl 也可以是函式：每次匹配到 pattern 時都會呼叫該函式，並用其回傳值作為替換內容
 
 def change_date(m: re.Match) -> str:
     """根據匹配回呼，將日期轉換成月份縮寫的日期格式"""
@@ -39,19 +41,27 @@ print(datepat.sub(change_date, text))
 # 'Today is 27 Nov 2012. PyCon starts 13 Mar 2013.'
 
 
-# ── 第 2.6 節：上少梅官墨類一致的替換 ────────────────────
-# 替換時往橺保留原文上少梅官墨（整數版、小寶版、水物版）
+# ── 第 2.6 節：保持大小寫風格一致的替換 ────────────────────
+# 在「不分大小寫」搜尋 / 替換時，希望替換後的字，保留原文字的大小寫樣式
+# 例如：PYTHON → SNAKE、python → snake、Python → Snake
 def matchcase(word: str):
-    """根據匹配帽是為宗高、低競、選亨低競，似罩的是替換時的大小写是否"""
+    """建立一個回呼函數，用於在不分大小寫替換時，保留原字串的大小寫樣式
+
+    根據被匹配到的文字樣式，將替換字調整為：
+      - 全大寫  ：原字全大寫時（e.g. PYTHON → SNAKE）
+      - 全小寫   ：原字全小寫時（e.g. python → snake）
+      - 首字母大寫：原字首字母大寫時（e.g. Python → Snake）
+      - 其他情況：直接使用傳入的 word
+    """
     def replace(m: re.Match) -> str:
-        t = m.group()  # 取得整整的匹配沙筑
-        if t.isupper():  # 選亨版寶
+        t = m.group()  # 取得完整被匹配到的原文字
+        if t.isupper():  # 原文字全為大寫
             return word.upper()
-        if t.islower():  # 低競版寶
+        if t.islower():  # 原文字全為小寫
             return word.lower()
-        if t[0].isupper():  # 水物版（後帅畳嘉母優軝）
+        if t[0].isupper():  # 原文字僅首字母為大寫（Title case）
             return word.capitalize()
-        return word
+        return word  # 其他複雜情況，直接回傳原樣式的替換字
 
     return replace
 

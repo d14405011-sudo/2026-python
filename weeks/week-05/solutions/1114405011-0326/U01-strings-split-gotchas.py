@@ -22,19 +22,19 @@ delimiters = fields[1::2] + [""]  # 取奇數鍵會枍平待(uu）
 rebuilt = "".join(v + d for v, d in zip(values, delimiters))
 print(rebuilt)  # 'asdf fjdk;afed,fjek,asdf,foo'（重建原文字串，保留分隔符）
 
-# ── 第 2.2 節：startswith() 一定要傳 tuple，不能傳 list ──────────────
+# ── 第 2.2 節：startswith() 的第二個參數要傳 tuple，不能傳 list ───────
 url = "http://www.python.org"
-choices = ["http:", "ftp:"]  # 計票清單（一個 list）
+choices = ["http:", "ftp:"]  # 可選通訊協定字首清單（list）
 
-# 陷事：直接傳 list 求提截沗不能購
+# 注意：startswith 的第二個參數必須是字串或字串組成的 tuple，不能直接傳 list
 # TypeError: startswith first arg must be str or a tuple of str, not list
 try:
     url.startswith(choices)  # type: ignore[arg-type]
 except TypeError as e:
-    print(f"TypeError: {e}")  # 報錯信息：傳 list 不能傳
+    print(f"TypeError: {e}")  # 報錯信息：因為傳入的是 list 而不是 str/tuple[str, ...]
 
-# 正確做法：先轉換成 tuple
-print(url.startswith(tuple(choices)))  # True（成羌閲一大揷＋）
+# 正確做法：先把 list 轉換成 tuple 再傳入
+print(url.startswith(tuple(choices)))  # True；list 轉成 tuple 後就可以正常使用
 
 # ── strip 只處理頭尾，不處理中間（2.11）──────────────
 s = "  hello     world  "
