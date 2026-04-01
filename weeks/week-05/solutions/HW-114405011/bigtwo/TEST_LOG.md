@@ -26,5 +26,5 @@ python -m unittest discover -s tests -v
 - `test_ui`：3/3
 
 ## 補充說明
-- 測試輸出中可見 `test_randomness.py` 與 `test_shuffle.py` 的統計列印內容，這些屬於驗證腳本輸出，不影響單元測試結果。
+- `test_randomness.py` 與 `test_shuffle.py` 僅在以腳本方式直接執行時會列印統計資訊，透過 `python -m unittest discover` 執行時不會產生額外輸出，且不影響單元測試結果。
 - 本次執行最終 `Ran 53 tests ... OK`，可作為作業提交時的最新測試依據。

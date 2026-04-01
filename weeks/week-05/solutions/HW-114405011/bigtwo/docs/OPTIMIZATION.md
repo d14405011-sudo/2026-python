@@ -61,7 +61,7 @@
 
 ### 在 PowerShell 中執行
 ```powershell
-cd 'd:\2026-python\weeks\week-05\solutions\11\bigtwo'
+cd 'weeks/week-05/solutions/HW-114405011/bigtwo'
 python main.py
 ```
 
@@ -83,7 +83,7 @@ python main.py
 
 ### 新增
 - `launchers/QuickStart.bat` - 主要啟動器
-- `OPTIMIZATION_SUMMARY.md` - 本文檔
+- `docs/OPTIMIZATION.md` - 本文檔
 
 ### 修改
 - `launchers/RunGame.vbs` - 動態路徑尋找
