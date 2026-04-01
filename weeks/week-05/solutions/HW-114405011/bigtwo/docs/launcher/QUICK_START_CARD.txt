@@ -1,0 +1,47 @@
+🎮 大老二遊戲 - 一頁紙啟動指南
+═══════════════════════════════════
+
+【最簡單的方式】
+───────────────────────────────────
+1️⃣  打開文件管理器
+2️⃣  進入 launchers 資料夾
+3️⃣  雙擊 Run_Game.bat
+
+遊戲會自動啟動 ✅
+
+【還是不行？】
+───────────────────────────────────
+❌ 沒反應 → 等 3-5 秒並檢查任務管理員
+❌ 出現錯誤 → 查看 TROUBLESHOOTING.md
+❌ 想看詳細說明 → 打開 HOW_TO_LAUNCH.md
+
+【備用方案】
+───────────────────────────────────
+• 試試 Start_Game.bat（在 venv 中執行）
+• 在 PowerShell 中執行：
+  cd 'd:\2026-python\weeks\week-05\solutions\11\bigtwo'
+  python main.py
+
+【檔案位置速查】
+───────────────────────────────────
+遊戲目錄：d:\2026-python\weeks\week-05\solutions\11\bigtwo
+啟動器：  d:\2026-python\weeks\week-05\solutions\11\bigtwo\launchers
+
+【相關文件】
+───────────────────────────────────
+📄 HOW_TO_LAUNCH.md      - 詳細啟動說明
+📄 TROUBLESHOOTING.md    - 故障排除指南
+📄 launchers/README.md   - 啟動器說明
+📄 README.md             - 遊戲完整說明
+📄 AI_USAGE.md           - AI 策略文檔
+
+【最常用的 3 個文件】
+───────────────────────────────────
+✅ launchers/Run_Game.bat        - 啟動遊戲
+✅ launchers/Create_Desktop_Shortcut.bat - 建立桌面快捷方式
+✅ TROUBLESHOOTING.md                    - 解決問題
+
+═══════════════════════════════════
+问: 遊戲還是不行?
+答: 檢查 TROUBLESHOOTING.md 的「診斷清單」
+═══════════════════════════════════

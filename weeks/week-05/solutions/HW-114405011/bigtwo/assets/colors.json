@@ -1,0 +1,71 @@
+{
+  "themes": {
+    "winter": {
+      "name": "冬季夜晚",
+      "description": "深藍夜空 + 暖金光斑",
+      "colors": {
+        "bg_top": "#123340",
+        "bg_bottom": "#081220",
+        "felt_line": "#234764",
+        "glow": "#FFC850",
+        "card_back": "#2D6CA5",
+        "card_back_dark": "#1C4873",
+        "button": "#C8963C",
+        "button_hover": "#DCAA50"
+      },
+      "design_notes": "適合挑戰賽模式，深沉競技感"
+    },
+    "summer": {
+      "name": "夏日明朗",
+      "description": "清爽明亮風格",
+      "colors": {
+        "bg_top": "#4682B4",
+        "bg_bottom": "#64A0D2",
+        "felt_line": "#3C78B4",
+        "glow": "#FFDC64",
+        "card_back": "#6496C8",
+        "card_back_dark": "#466EA0",
+        "button": "#3CA0DC",
+        "button_hover": "#64B4F0"
+      },
+      "design_notes": "適合休閒模式，友善輕鬆"
+    },
+    "neon": {
+      "name": "霓光未來",
+      "description": "賽博朋克風格",
+      "colors": {
+        "bg_top": "#190F2D",
+        "bg_bottom": "#0A192D",
+        "felt_line": "#502878",
+        "glow": "#64FFC8",
+        "card_back": "#3C2D78",
+        "card_back_dark": "#281555",
+        "button": "#64C8FF",
+        "button_hover": "#96DCFF"
+      },
+      "design_notes": "高科技感，青綠霓光"
+    },
+    "default": {
+      "name": "經典深藍",
+      "description": "原始配色",
+      "colors": {
+        "bg_top": "#162C3F",
+        "bg_bottom": "#0B1B2D",
+        "felt_line": "#1C3F53",
+        "glow": "#4A90D9",
+        "card_back": "#3A83C6",
+        "card_back_dark": "#275E98",
+        "button": "#228CC9",
+        "button_hover": "#14A8E9"
+      },
+      "design_notes": "平衡的配色方案"
+    }
+  },
+  "visual_effects": {
+    "glow_layers": 6,
+    "shadow_depth": 3,
+    "border_width": 2,
+    "animation_speed": "smooth"
+  },
+  "notes": "色彩使用 RGB 和 HEX 格式，方便轉換和參考"
+}

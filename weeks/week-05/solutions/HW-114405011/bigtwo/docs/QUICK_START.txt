@@ -1,0 +1,57 @@
+#!/bin/bash
+# 大老二遊戲啟動器 - 快速參考卡
+
+## 🎮 立即遊戲 - 3 種最簡單的方式
+
+### ⭐ 推薦方式：Run_Game.bat
+直接雙擊此檔案 → 立即啟動遊戲！
+無需任何配置，最簡單快速。
+
+### 🖥️ 方式 2：Create_Desktop_Shortcut.bat
+執行此檔案 → 在桌面創建快捷方式 → 之後直接點擊桌面圖示
+
+### 📦 方式 3：build_exe.bat
+執行此檔案 → 生成獨立 EXE → 雙擊 dist/Big_Two.exe
+優點：無需 Python，可分發給他人
+
+---
+
+## 📋 選擇適合你的方式
+
+| 你的情況 | 推薦方式 | 步驟 |
+|---------|--------|------|
+| 想立即遊玩 | Run_Game.bat | 雙擊一下 |
+| 經常遊玩 | Create_Desktop_Shortcut.bat | 第一次執行，之後用快捷方式 |
+| 要分發給朋友 | build_exe.bat | 執行一次，分享生成的 EXE |
+| 有技術基礎 | Python 命令行 | `python main.py` |
+
+---
+
+## ❓ 常見問題速解
+
+**Q: 哪個最簡單？**  
+A: `Run_Game.bat` - 直接雙擊，3 秒啟動
+
+**Q: 需要安裝 Python 嗎？**  
+A: 需要（除非使用 Big_Two.exe）
+
+**Q: 可以分發給其他人用嗎？**  
+A: 可以，執行 build_exe.bat 生成 EXE 檔案
+
+**Q: EXE 很大嗎？**  
+A: 約 120MB（包含所有依賴，但無需額外配置）
+
+---
+
+## 🚀 就現在開始吧！
+
+**最零費力的方法：**
+1. 找到 `Run_Game.bat` 檔案
+2. 雙擊它
+3. 遊戲啟動！🎲
+
+---
+
+檔案位置：`d:\2026-python\weeks\week-05\solutions\11\bigtwo\`
+
+詳細說明請查看 `START_HERE.md` 或 `README_CN.md`
