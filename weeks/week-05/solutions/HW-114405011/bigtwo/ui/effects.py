@@ -19,6 +19,11 @@ class ParticleEffect:
     # 【全局粒子管理】
     MAX_PARTICLES = 100  # 最多同時存在的粒子數
     TOTAL_PARTICLE_COUNT = 0  # 追蹤全局粒子計數
+
+    @classmethod
+    def reset_global_count(cls):
+        """重置全局粒子計數，用於場景切換或整體清理。"""
+        cls.TOTAL_PARTICLE_COUNT = 0
     
     def __init__(self, x, y, particle_type='spark', color=(255, 200, 80)):
         self.x = x

@@ -2,7 +2,7 @@
 
 ## ❓ 遊戲無法啟動？
 
-### 狀況 1：雙擊 Run_Game.bat 後沒反應
+### 狀況 1：雙擊 開始遊戲.bat 後沒反應
 
 **症狀**：
 - 命令行窗口閃過或什麼都沒有
@@ -19,14 +19,14 @@
   - 如果有，表示遊戲在運行中
 
 #### 步驟 2：試試備用啟動器
-1. 雙擊 `Start_Game.bat`（使用 venv）
+1. 雙擊 `開始遊戲.bat`
 2. 等待遊戲啟動
 
 #### 步驟 3：手動執行
 1. 打開 PowerShell（Windows）
 2. 執行以下命令：
    ```powershell
-   cd 'd:\2026-python\weeks\week-05\solutions\11\bigtwo'
+   cd 'd:\2026-python\weeks\week-05\solutions\HW-114405011\bigtwo'
    & 'D:\2026-python\.venv\Scripts\python.exe' main.py
    ```
 3. 查看是否有錯誤信息
@@ -45,12 +45,11 @@ can't open file 'D:\\2026-python\\main.py': [Errno 2] No such file or directory
 
 **解決**：
 1. 驗證 `main.py` 是否存在
-   - 應該在：`d:\2026-python\weeks\week-05\solutions\11\bigtwo\main.py`
+   - 應該在：`d:\2026-python\weeks\week-05\solutions\HW-114405011\bigtwo\main.py`
 2. 驗證 Python 執行檔路徑
    - 應該在：`D:\2026-python\.venv\Scripts\python.exe`
-3. 如果路徑不同，編輯 `Run_Game.bat`
-   - 更新 `set PYTHON_PATH=...` 行
-   - 更新 `set GAME_DIR=...` 行
+3. 如果路徑不同，編輯 `開始遊戲.bat` 或 `launchers\QuickStart.bat`
+   - 更新根目錄自動推導路徑
 
 ---
 
@@ -95,7 +94,7 @@ cd d:\2026-python
 .\.venv\Scripts\pip install pygame-ce
 ```
 
-然後重新雙擊 `Run_Game.bat`
+然後重新雙擊 `開始遊戲.bat`
 
 ---
 
@@ -112,7 +111,7 @@ ModuleNotFoundError: No module named 'ui'
 1. 確保 `main.py` 和 `ui/` 目錄在同一位置
 2. 改到遊戲目錄執行：
    ```powershell
-   cd 'd:\2026-python\weeks\week-05\solutions\11\bigtwo'
+   cd 'd:\2026-python\weeks\week-05\solutions\HW-114405011\bigtwo'
    python main.py
    ```
 
@@ -147,14 +146,14 @@ ModuleNotFoundError: No module named 'ui'
 如果還是無法啟動，逐項檢查：
 
 - [ ] `main.py` 存在
-  ```powershell
-  Test-Path 'd:\2026-python\weeks\week-05\solutions\11\bigtwo\main.py'
-  ```
+   ```powershell
+   Test-Path 'd:\2026-python\weeks\week-05\solutions\HW-114405011\bigtwo\main.py'
+   ```
 
 - [ ] `ui/app.py` 存在
-  ```powershell
-  Test-Path 'd:\2026-python\weeks\week-05\solutions\11\bigtwo\ui\app.py'
-  ```
+   ```powershell
+   Test-Path 'd:\2026-python\weeks\week-05\solutions\HW-114405011\bigtwo\ui\app.py'
+   ```
 
 - [ ] Python 可執行
   ```powershell
@@ -167,10 +166,10 @@ ModuleNotFoundError: No module named 'ui'
   ```
 
 - [ ] 可以手動啟動
-  ```powershell
-  cd 'd:\2026-python\weeks\week-05\solutions\11\bigtwo'
-  & 'D:\2026-python\.venv\Scripts\python.exe' main.py
-  ```
+   ```powershell
+   cd 'd:\2026-python\weeks\week-05\solutions\HW-114405011\bigtwo'
+   & 'D:\2026-python\.venv\Scripts\python.exe' main.py
+   ```
 
 ---
 
@@ -182,7 +181,7 @@ ModuleNotFoundError: No module named 'ui'
 2. **執行命令**：
    ```powershell
    & 'D:\2026-python\.venv\Scripts\python.exe' --version
-   Get-Item 'd:\2026-python\weeks\week-05\solutions\11\bigtwo\main.py'
+   Get-Item 'd:\2026-python\weeks\week-05\solutions\HW-114405011\bigtwo\main.py'
    Get-Item 'D:\2026-python\.venv\Scripts\python.exe'
    ```
 3. **系統信息**：
@@ -197,7 +196,7 @@ ModuleNotFoundError: No module named 'ui'
 
 ```powershell
 # 進入遊戲目錄
-cd 'd:\2026-python\weeks\week-05\solutions\11\bigtwo'
+cd 'd:\2026-python\weeks\week-05\solutions\HW-114405011\bigtwo'
 
 # 檢查關鍵檔案
 Write-Host "檔案檢查："
@@ -222,14 +221,14 @@ Write-Host "`n啟動測試："
 
 ---
 
-**最後一招**：直接執行 `Start_Game.bat` 和 `Run_Game.bat` 都試過，都無法工作，那麼：
+**最後一招**：直接執行 `開始遊戲.bat` 和 `launchers\QuickStart.bat` 都試過，都無法工作，那麼：
 
 1. 在文件管理器打開遊戲目錄
 2. 右鍵→新增→文字檔案
 3. 複製以下內容：
    ```batch
    @echo off
-   cd /d d:\2026-python\weeks\week-05\solutions\11\bigtwo
+   cd /d d:\2026-python\weeks\week-05\solutions\HW-114405011\bigtwo
    D:\2026-python\.venv\Scripts\python.exe main.py
    pause
    ```

@@ -6,24 +6,31 @@
 
 直接雙擊以下任一檔案即可啟動遊戲：
 
-#### **`Run_Game.bat`** ⭐
-- **用途**：一鍵啟動遊戲
+#### **`開始遊戲.bat`** ⭐
+- **用途**：專案根目錄的一鍵啟動器
 - **要求**：需要 Python 3.9+
-- **優點**：無需任何配置，最簡單快速
+- **優點**：最容易找到、最適合日常使用
 
 **使用步驟：**
-1. 定位到遊戲目錄：`weeks/week-05/solutions/11/bigtwo/`
-2. 雙擊 `Run_Game.bat`
+1. 定位到遊戲目錄：`weeks/week-05/solutions/HW-114405011/bigtwo/`
+2. 雙擊 `開始遊戲.bat`
 3. 遊戲自動啟動
 
-#### **`Start_Game.bat`**
-- **用途**：使用虛擬環境啟動
-- **要求**：需要虛擬環境 `.venv`
-- **優點**：確保使用正確的 Python 環境
+### 方法 2：使用 `launchers/QuickStart.bat`
+
+- **用途**：從 `launchers/` 目錄啟動遊戲
+- **要求**：需要 Python 3.9+ 或 `.venv`
+- **優點**：會自動搜尋本機或上層虛擬環境
+
+### 方法 3：使用 `launchers/RunGame.vbs`
+
+- **用途**：無視窗隱形啟動
+- **要求**：同樣需要 Python 或虛擬環境
+- **優點**：適合做桌面捷徑
 
 ---
 
-### 方法 2：使用 Python 指令（需要終端）
+### 方法 4：使用 Python 指令（需要終端）
 
 ```bash
 # 方法 A：直接運行
@@ -35,37 +42,6 @@ d:/2026-python/.venv/Scripts/python.exe main.py
 
 ---
 
-### 方法 3：生成獨立 EXE 檔案（最專業）
-
-生成 `.exe` 檔案後，用戶無需安裝 Python 就能執行。
-
-**第一次使用时的設置步驟：**
-
-1. **準備環境**
-   ```bash
-   # 安裝 PyInstaller（只需一次）
-   pip install pyinstaller
-   ```
-
-2. **生成 EXE**
-   雙擊 `build_exe.bat`
-   
-   或使用命令行：
-   ```bash
-   pyinstaller build_executable.spec
-   ```
-
-3. **運行 EXE**
-   - 生成的 EXE 位於 `dist/Big_Two.exe`
-   - 雙擊即可運行（完全獨立，不需要 Python）
-
-**優點：**
-- 無需安裝 Python
-- 可分發給其他用戶
-- 啟動速度快
-
----
-
 ## 🔧 環境要求
 
 ### 最小要求
@@ -74,7 +50,7 @@ d:/2026-python/.venv/Scripts/python.exe main.py
 
 ### 安裝依賴
 ```bash
-# 自動安裝（Run_Game.bat 會自動檢查）
+# 自動安裝（開始遊戲.bat 與 QuickStart.bat 都會自動檢查）
 pip install pygame-ce
 
 # 或手動安裝
@@ -94,7 +70,7 @@ pip install pygame-ce==2.5.7
 - ✅ 支持 UTF-8 編碼（避免亂碼）
 
 ### UI 級別  
-- ✅ 動態光暈效果（6 層）
+- ✅ 動態光暈效果
 - ✅ 高效的卡牌渲染
 - ✅ 主題切換優化
 - ✅ 記憶體使用優化
@@ -111,10 +87,11 @@ pip install pygame-ce==2.5.7
 ```
 bigtwo/
 ├── main.py                     主程式（優化版）
-├── Run_Game.bat               快速啟動（推薦）
-├── Start_Game.bat             虛擬環境啟動
-├── build_exe.bat              EXE 生成器
-├── build_executable.spec      PyInstaller 配置
+├── 開始遊戲.bat               根目錄快速啟動
+├── launchers/
+│   ├── QuickStart.bat         快速啟動（推薦）
+│   ├── RunGame.vbs            隱形啟動
+│   └── Create_Desktop_Shortcut.bat  桌面快捷方式
 ├── ui/
 │   ├── app.py
 │   ├── render.py
@@ -137,16 +114,17 @@ bigtwo/
 ### 首次運行
 1. 確保 Python 3.9+ 已安裝
 2. 定位到遊戲目錄
-3. **雙擊 `Run_Game.bat`**
+3. **雙擊 `開始遊戲.bat`**
 
 ### 日常使用
-- **方法 1**：繼續使用 `Run_Game.bat`（最簡單）
-- **方法 2**：生成 `Big_Two.exe`（無需 Python）
+- **方法 1**：繼續使用 `開始遊戲.bat`（最簡單）
+- **方法 2**：使用 `launchers\QuickStart.bat`
+- **方法 3**：建立桌面快捷方式後從桌面啟動
 
 ### 分發給他人
-1. 執行 `build_exe.bat` 生成 EXE
-2. 將 `dist/Big_Two.exe` 分發
-3. 接收者無需任何配置，直接雙擊運行
+1. 執行 `launchers\Create_Desktop_Shortcut.bat` 建立快捷方式
+2. 或直接分發整個專案資料夾
+3. 接收者可直接雙擊 `開始遊戲.bat` 或桌面捷徑
 
 ---
 
@@ -173,18 +151,18 @@ pip install pygame-ce
 d:/2026-python/.venv/Scripts/pip install pygame-ce
 ```
 
-### 問題：EXE 無法啟動或速度很慢
+### 問題：QuickStart.bat 找不到 Python
 
 **解決方案：**
-1. 確保系統有足夠磁碟空間（EXE 大約 100-150MB）
-2. 重新執行 `build_exe.bat` 重新生成
-3. 檢查防毒軟體是否阻擋
+1. 檢查 `.venv` 是否存在於專案根目錄
+2. 若沒有，先建立虛擬環境並安裝 `pygame-ce`
+3. 或直接使用 `開始遊戲.bat`
 
 ### 問題：遊戲啟動時顯示亂碼
 
 **解決方案：**
 ```bash
-# Run_Game.bat 會自動設置 UTF-8 編碼
+# `開始遊戲.bat` 與 `launchers\QuickStart.bat` 會自動設置 UTF-8 編碼
 # 如果仍有問題，手動設置：
 set PYTHONIOENCODING=utf-8
 python main.py
@@ -196,10 +174,10 @@ python main.py
 
 | 方式 | 速度 | 易用性 | Python 依賴 | 體積 |
 |------|------|--------|-----------|------|
-| Run_Game.bat | ⚡⚡ | ⭐⭐⭐⭐⭐ | 需要 | 小 |
-| Start_Game.bat | ⚡⚡ | ⭐⭐⭐ | 需要 | 小 |
+| 開始遊戲.bat | ⚡⚡ | ⭐⭐⭐⭐⭐ | 需要 | 小 |
+| QuickStart.bat | ⚡⚡ | ⭐⭐⭐⭐ | 需要 | 小 |
+| RunGame.vbs | ⚡⚡ | ⭐⭐⭐⭐ | 需要 | 小 |
 | Python 指令 | ⚡ | ⭐⭐ | 需要 | 小 |
-| Big_Two.exe | ⚡⚡⚡ | ⭐⭐⭐⭐⭐ | 不需要 | 大 (~120MB) |
 
 ---
 
@@ -215,12 +193,6 @@ python main.py
 - 錯誤提示
 - 編碼設置
 - 自動路徑調整
-
-### PyInstaller 配置
-- 優化的構建設定
-- 隱藏導入支持
-- 打包資料檔案
-- 無主控台視窗（exe 模式）
 
 ---
 

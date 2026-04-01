@@ -1,9 +1,14 @@
-﻿import unittest
-from unittest.mock import Mock, patch
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+import os
+import unittest
+from unittest.mock import patch
+
+import pygame
+
 from game.models import Card, Hand
 from ui.render import Renderer
-import pygame
-import os
 
 class TestUIParts(unittest.TestCase):
     def setUp(self):

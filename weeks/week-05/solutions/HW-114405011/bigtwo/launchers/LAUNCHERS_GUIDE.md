@@ -34,17 +34,17 @@
   - 必須配合快捷方式使用
 - **推薦用於**: 桌面快捷方式、最終使用者執行
 
-### ❌ 建議刪除/合併的啟動器
+### ❌ 舊檔案說明
 
-下列文件功能重複或已過時，建議刪除：
+下列檔案若仍在備份或舊版本中，建議不要再對外使用：
 
 ```
 launchers/
 ├── QUICK.bat              # 與 QuickStart.bat 重複
-├── Run_Game.bat           # 功能不完整
-├── Start.bat              # 與 開始遊戲.bat 重複
-├── Start_Game.bat         # 與 開始遊戲.bat 重複
-└── build_exe.bat          # 建構指令碼，不屬於遊戲啟動
+├── 舊版標準啟動器         # 請改用 開始遊戲.bat
+├── Start.bat              # 舊版根目錄啟動器
+├── 舊版虛擬環境啟動器     # 請改用 開始遊戲.bat
+└── 舊版打包腳本           # 不再對外提供
 ```
 
 ## 🔧 環境檢查清單
@@ -76,8 +76,8 @@ launchers/
 mkdir backup_launchers
 move launchers\QUICK.bat backup_launchers\
 move launchers\Start.bat backup_launchers\
-move launchers\Start_Game.bat backup_launchers\
-move launchers\Run_Game.bat backup_launchers\
+move launchers\舊版虛擬環境啟動器 backup_launchers\
+move launchers\舊版標準啟動器 backup_launchers\
 ```
 
 ### 第二步: 驗證核心啟動器正常工作
@@ -92,14 +92,13 @@ QuickStart.bat
 ```
 
 ### 第三步: 更新文件列表
-更新 `.gitignore` 以排除舊啟動器：
+如果保留舊備份，建議在 `.gitignore` 中排除它們：
 
 ```gitignore
 # 舊啟動器 (保留備份於 backup_launchers/)
 launchers/QUICK.bat
-launchers/Start.bat
-launchers/Start_Game.bat
-launchers/Run_Game.bat
+launchers/舊版標準啟動器
+launchers/舊版虛擬環境啟動器
 ```
 
 ## 🎯 使用場景

@@ -25,16 +25,6 @@
 - **用途**：當你想玩遊戲而不看 CMD 窗口時
 - **用法**：雙擊即可
 
-### 3️⃣ 【傳統方式】Run_Game.bat
-- **功能**：標準批次檔啟動
-- **特點**：提供詳細的日誌輸出
-- **用法**：雙擊或在 CMD 中執行
-
-### 4️⃣ 【備用方案】Start_Game.bat
-- **功能**：在虛擬環境中啟動
-- **用途**：確保使用正確的依賴
-- **用法**：當其他啟動器失效時使用
-
 ## 🎁 便利工具
 
 ### 建立桌面快捷方式
@@ -56,7 +46,7 @@
 
 ### Q: 想在 PowerShell 中手動啟動？
 ```powershell
-cd 'd:\2026-python\weeks\week-05\solutions\11\bigtwo'
+cd 'd:\2026-python\weeks\week-05\solutions\HW-114405011\bigtwo'
 python main.py
 ```
 
@@ -64,5 +54,5 @@ python main.py
 
 💡 **小提示**：
 - 大多數情況下，`QuickStart.bat` 就是你需要的全部！
-- 如果啟動器失效，試試 `Run_Game.bat`
+- 如果要無視窗啟動，試試 `RunGame.vbs`
 - 遊戲支援繁體中文，但請確保 UTF-8 編碼已啟用

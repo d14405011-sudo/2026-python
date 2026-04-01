@@ -1,6 +1,6 @@
 # 大老二遊戲 (Big Two) - 中文版說明
 
-> **🎮 立即遊戲：雙擊 `Run_Game.bat` 即可啟動！**
+> **🎮 立即遊戲：雙擊 `開始遊戲.bat` 即可啟動！**
 
 ---
 
@@ -21,7 +21,7 @@
 ```
 1. 打開遊戲資料夾
    ↓
-2. 找到 Run_Game.bat 檔案
+2. 找到 `開始遊戲.bat` 檔案
    ↓
 3. 雙擊執行
 ```
@@ -32,9 +32,9 @@
 
 | 啟動方式 | 步驟 | 適用場景 |
 |---------|------|--------|
-| **Run_Game.bat** | 雙擊 | 日常遊玩（推薦） |
-| **桌面快捷方式** | 執行 Create_Desktop_Shortcut.bat | 無需進入資料夾 |
-| **Big_Two.exe** | 執行 build_exe.bat 後雙擊 | 分發給他人使用 |
+| **開始遊戲.bat** | 雙擊 | 日常遊玩（推薦） |
+| **launchers\\QuickStart.bat** | 雙擊 | 進階啟動 |
+| **桌面快捷方式** | 執行 `launchers\\Create_Desktop_Shortcut.bat` | 無需進入資料夾 |
 
 ### 建立桌面快捷方式
 
@@ -117,7 +117,7 @@
 - **RAM**：512 MB 或以上
 
 ### 自動檢查
-`Run_Game.bat` 會自動檢查以下條件並提示安裝：
+`開始遊戲.bat` 會自動檢查以下條件並提示安裝：
 - Python 3.9+
 - pygame-ce 2.5.7
 
@@ -134,9 +134,11 @@
 ```
 遊戲資料夾/
 ├── 🚀 啟動檔案
-│   ├─ Run_Game.bat              ⭐ 推薦：一鍵快速啟動
-│   ├─ Create_Desktop_Shortcut.bat 建立桌面快捷方式
-│   ├─ build_exe.bat              生成獨立 EXE 檔案
+│   ├─ 開始遊戲.bat              ⭐ 推薦：一鍵快速啟動
+│   ├─ launchers/
+│   │  ├─ QuickStart.bat         進階啟動
+│   │  ├─ RunGame.vbs            隱形啟動
+│   │  └─ Create_Desktop_Shortcut.bat 建立桌面快捷方式
 │   └─ main.py                    Python 主程式
 │
 ├── 📚 說明文檔
@@ -151,7 +153,7 @@
 │   └─ tests/                     單位測試
 │
 └── ⚙️ 配置
-    └─ build_executable.spec      PyInstaller 配置
+   └── （目前無額外打包設定檔）
 ```
 
 ---
@@ -190,7 +192,7 @@
 
 ## 🐛 故障排除
 
-### 問題：無法找到 Run_Game.bat
+### 問題：無法找到 開始遊戲.bat
 **解決方案：**
 - 確認檔案在正確的資料夾
 - 檢查檔案副檔名是否為 `.bat`
@@ -204,12 +206,12 @@
 
 ### 問題：缺少 pygame 模組
 **解決方案：**
-- `Run_Game.bat` 會自動提示安裝
+- `開始遊戲.bat` 會自動提示安裝
 - 或手動執行：`pip install pygame-ce`
 
 ### 問題：出現亂碼
 **解決方案：**
-- `Run_Game.bat` 已自動設置 UTF-8
+- `開始遊戲.bat` 與 `launchers\\QuickStart.bat` 已自動設置 UTF-8
 - 如仍有問題，重新確認 Windows 語言設定
 
 更詳細的故障排除，請查看 **[GAME_LAUNCHER_GUIDE.md](GAME_LAUNCHER_GUIDE.md)**
@@ -221,9 +223,9 @@
 ### EXE 版本（無需 Python）
 如果你想在沒有 Python 的機器上執行：
 
-1. 雙擊 `build_exe.bat` 生成 EXE
-2. 在 `dist/` 資料夾找到 `Big_Two.exe`
-3. 直接雙擊執行（可分發給其他人）
+1. 雙擊 `launchers\\Create_Desktop_Shortcut.bat`
+2. 在桌面找到 `BigTwo_Game.lnk`
+3. 直接雙擊執行
 
 **優點：**
 - 無需安裝 Python
@@ -245,7 +247,7 @@
 ### 最快的方式（3 秒鐘）
 
 ```
-1. 找到 Run_Game.bat
+1. 找到 `開始遊戲.bat`
 2. 雙擊
 3. 開始遊戲！
 ```

@@ -1,8 +1,12 @@
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
 視覺增強整合示例
 展示如何在遊戲中使用各種視覺效果
 """
+
+import pygame
+import sys
 
 from ui.effects import (
     ParticleEffect, CardAnimation, BorderDecorator, 
@@ -118,9 +122,13 @@ class VisualEnhancementExample:
         for i in reversed(dead_anims):
             self.card_animations.pop(i)
         
-        # 更新光暈
+        # 更新光暈並移除過期項目
+        alive_glows = []
         for glow in self.glow_effects:
             glow.update()
+            if glow.is_alive():
+                alive_glows.append(glow)
+        self.glow_effects = alive_glows
     
     def render(self, screen):
         """渲染所有視覺效果（層級順序）"""
@@ -190,7 +198,7 @@ DEMO_INSTRUCTIONS = """
 【視覺增強互動演示】
 
 按鍵說明：
-  1-7: 切換主題 (1=冬季, 2=霓光, 3=夏日, 4=經典, 5=黑紫, 6=綠幕, 7=皇金)
+    1-8: 切換主題 (1=冬季, 2=霓光, 3=夏日, 4=經典, 5=黑紫, 6=綠幕, 7=皇金, 8=夕陽)
   SPACE: 發牌特效演示
   V: 勝利特效演示
   R: 重置所有效果
@@ -204,9 +212,6 @@ DEMO_INSTRUCTIONS = """
 """
 
 if __name__ == '__main__':
-    import pygame
-    import sys
-    
     pygame.init()
     
     SCREEN_WIDTH = 1280
@@ -229,7 +234,7 @@ if __name__ == '__main__':
                 running = False
             
             elif event.type == pygame.KEYDOWN:
-                # 主題切換 (1-7)
+                # 主題切換 (1-8)
                 if event.key == pygame.K_1:
                     visual.switch_theme('winter')
                 elif event.key == pygame.K_2:
@@ -244,6 +249,8 @@ if __name__ == '__main__':
                     visual.switch_theme('tech_green')
                 elif event.key == pygame.K_7:
                     visual.switch_theme('royal_gold')
+                elif event.key == pygame.K_8:
+                    visual.switch_theme('sunset')
                 
                 # 特效演示
                 elif event.key == pygame.K_SPACE:
@@ -258,6 +265,7 @@ if __name__ == '__main__':
                     visual.particle_effects.clear()
                     visual.card_animations.clear()
                     visual.glow_effects.clear()
+                    ParticleEffect.reset_global_count()
                     print("✓ 重置所有效果")
                 
                 elif event.key == pygame.K_q:
@@ -275,7 +283,7 @@ if __name__ == '__main__':
             f"主題: {visual.current_theme}",
             f"粒子: {len(visual.particle_effects)} 活躍",
             f"動畫: {len(visual.card_animations)} 活躍",
-            "按 1-7 切換主題 | SPACE 發牌 | V 勝利 | R 重置 | Q 退出"
+            "按 1-8 切換主題 | SPACE 發牌 | V 勝利 | R 重置 | Q 退出"
         ]
         
         for i, line in enumerate(text_lines):

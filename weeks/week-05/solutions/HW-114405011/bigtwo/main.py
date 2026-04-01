@@ -23,10 +23,21 @@ def _setup_encoding():
             is_taiwan = system_locale and ('zh_TW' in system_locale or 'Taiwan' in system_locale)
         except:
             is_taiwan = False
-        
+
+        def _reconfigure_or_wrap(stream):
+            if stream is None:
+                return None
+            if hasattr(stream, 'reconfigure'):
+                stream.reconfigure(encoding='utf-8')
+                return stream
+            buffer = getattr(stream, 'buffer', None)
+            if buffer is None:
+                return stream
+            return io.TextIOWrapper(buffer, encoding='utf-8')
+
         # 設置 sys.stdout 和 sys.stderr 為 UTF-8
-        sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
-        sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding='utf-8')
+        sys.stdout = _reconfigure_or_wrap(sys.stdout)
+        sys.stderr = _reconfigure_or_wrap(sys.stderr)
         
         # 設置環境變數以確保 Python 子進程也使用 UTF-8
         os.environ['PYTHONIOENCODING'] = 'utf-8'

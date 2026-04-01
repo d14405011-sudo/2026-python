@@ -1,5 +1,6 @@
-﻿# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 import pygame
+
 
 class InputHandler:
     def __init__(self, renderer):
@@ -43,7 +44,7 @@ class InputHandler:
                 return False
 
         if not current_p.is_ai:
-            for i in range(len(current_p.hand)-1, -1, -1):
+            for i in range(len(current_p.hand) - 1, -1, -1):
                 x = self.hand_x + i * self.hand_spacing
                 y = self.hand_y - (self.selected_lift if i in self.selected_indices else 0)
                 card_rect = pygame.Rect(x, y, self.renderer.CARD_WIDTH, self.renderer.CARD_HEIGHT)
@@ -98,10 +99,12 @@ class InputHandler:
         return False
 
     def try_play(self, game):
-        if not self.selected_indices: return False
+        if not self.selected_indices:
+            return False
         current_p = game.players[game.current_player]
-        if current_p.is_ai: return False
-        
+        if current_p.is_ai:
+            return False
+
         selected_cards = [current_p.hand[i] for i in sorted(self.selected_indices, reverse=True)]
         selected_cards.reverse()
 

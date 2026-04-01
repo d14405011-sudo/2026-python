@@ -10,7 +10,6 @@
 - 音效啟用/禁用切換
 """
 
-import os
 import pygame
 from pathlib import Path
 from typing import Optional, Dict
@@ -104,7 +103,7 @@ class SoundManager:
         except Exception:
             pass
     
-    def stop(self, sound_key: str = None) -> None:
+    def stop(self, sound_key: Optional[str] = None) -> None:
         """停止指定的音效，或停止所有播放
         
         Args:
