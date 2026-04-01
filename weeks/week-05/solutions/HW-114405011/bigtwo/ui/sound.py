@@ -66,7 +66,7 @@ class SoundManager:
         
         # 確保音效目錄存在
         if not self.SOUNDS_DIR.exists():
-            self.SOUNDS_DIR.mkdir(parents=True, exist_ok=True)
+            return
         
         for sound_key, sound_file in self.SOUND_FILES.items():
             sound_path = self.SOUNDS_DIR / sound_file

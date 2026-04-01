@@ -71,7 +71,7 @@ class Hand(list):
                 return card
         return None
 
-    def remove(self, cards: Iterable[Card]) -> None:
+    def discard_cards(self, cards: Iterable[Card]) -> None:
         """移除指定的牌組，若牌不存在則忽略。"""
         for card in cards:
             if card in self:
@@ -92,5 +92,5 @@ class Player:
 
     def play_cards(self, cards: List[Card]) -> List[Card]:
         """出牌（從手牌移除指定牌組）"""
-        self.hand.remove(cards)
+        self.hand.discard_cards(cards)
         return cards

@@ -1,4 +1,4 @@
-﻿# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 """
 大老二遊戲 - 主程式
 支持命令行參數和GUI啟動 
@@ -26,14 +26,20 @@ def _setup_encoding():
 
         def _reconfigure_or_wrap(stream):
             if stream is None:
-                return None
+                return open(os.devnull, 'w', encoding='utf-8')
             if hasattr(stream, 'reconfigure'):
-                stream.reconfigure(encoding='utf-8')
-                return stream
+                try:
+                    stream.reconfigure(encoding='utf-8')
+                    return stream
+                except Exception:
+                    pass
             buffer = getattr(stream, 'buffer', None)
             if buffer is None:
-                return stream
-            return io.TextIOWrapper(buffer, encoding='utf-8')
+                return open(os.devnull, 'w', encoding='utf-8')
+            try:
+                return io.TextIOWrapper(buffer, encoding='utf-8')
+            except Exception:
+                return open(os.devnull, 'w', encoding='utf-8')
 
         # 設置 sys.stdout 和 sys.stderr 為 UTF-8
         sys.stdout = _reconfigure_or_wrap(sys.stdout)

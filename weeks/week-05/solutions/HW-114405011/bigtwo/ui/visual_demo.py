@@ -265,7 +265,6 @@ if __name__ == '__main__':
                     visual.particle_effects.clear()
                     visual.card_animations.clear()
                     visual.glow_effects.clear()
-                    ParticleEffect.reset_global_count()
                     print("✓ 重置所有效果")
                 
                 elif event.key == pygame.K_q:

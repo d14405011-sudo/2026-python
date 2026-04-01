@@ -16,14 +16,8 @@ import random
 class ParticleEffect:
     """粒子效果系統（已優化）"""
     
-    # 【全局粒子管理】
-    MAX_PARTICLES = 100  # 最多同時存在的粒子數
-    TOTAL_PARTICLE_COUNT = 0  # 追蹤全局粒子計數
-
-    @classmethod
-    def reset_global_count(cls):
-        """重置全局粒子計數，用於場景切換或整體清理。"""
-        cls.TOTAL_PARTICLE_COUNT = 0
+    # 每個效果物件的粒子上限
+    MAX_PARTICLES = 100
     
     def __init__(self, x, y, particle_type='spark', color=(255, 200, 80)):
         self.x = x
@@ -37,9 +31,7 @@ class ParticleEffect:
         """生成粒子（受全局限制約束）"""
         if self.particle_type == 'spark':
             # 閃爍效果（發牌）
-            for _ in range(8):
-                if ParticleEffect.TOTAL_PARTICLE_COUNT >= ParticleEffect.MAX_PARTICLES:
-                    break  # 達到上限，停止生成
+            for _ in range(min(8, self.MAX_PARTICLES)):
                 angle = random.uniform(0, 2 * math.pi)
                 speed = random.uniform(2, 6)
                 self.particles.append({
@@ -51,10 +43,9 @@ class ParticleEffect:
                     'age': 0,
                     'size': random.uniform(2, 5)
                 })
-                ParticleEffect.TOTAL_PARTICLE_COUNT += 1
                 
         elif self.particle_type == 'victory':
-            # 勝利粒子（更多、更彩色），但受限於全局上限
+            # 勝利粒子（更多、更彩色）
             colors = [
                 (255, 215, 0),    # 金色
                 (255, 105, 180),  # 深粉紅
@@ -62,8 +53,7 @@ class ParticleEffect:
                 (255, 0, 127),    # 玫瑰紅
                 (0, 255, 0),      # 綠色
             ]
-            max_victory_particles = min(20, ParticleEffect.MAX_PARTICLES - ParticleEffect.TOTAL_PARTICLE_COUNT)
-            for _ in range(max_victory_particles):
+            for _ in range(min(20, self.MAX_PARTICLES)):
                 angle = random.uniform(0, 2 * math.pi)
                 speed = random.uniform(3, 8)
                 self.particles.append({
@@ -76,11 +66,9 @@ class ParticleEffect:
                     'size': random.uniform(3, 8),
                     'color': random.choice(colors)
                 })
-                ParticleEffect.TOTAL_PARTICLE_COUNT += 1
     
     def update(self):
         """更新粒子（自動清理已過期粒子）"""
-        dead_count = 0
         for p in self.particles:
             p['x'] += p['vx']
             p['y'] += p['vy']
@@ -88,13 +76,7 @@ class ParticleEffect:
             p['age'] += 1
             
         # 移除已過期的粒子，並更新計數
-        original_count = len(self.particles)
         self.particles = [p for p in self.particles if p['age'] < p['life']]
-        dead_count = original_count - len(self.particles)
-        
-        # 【關鍵優化】減少全局計數
-        ParticleEffect.TOTAL_PARTICLE_COUNT = max(0, ParticleEffect.TOTAL_PARTICLE_COUNT - dead_count)
-        
         return len(self.particles) > 0
     
     def draw(self, screen):

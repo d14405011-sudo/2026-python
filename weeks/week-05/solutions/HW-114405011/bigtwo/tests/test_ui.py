@@ -17,6 +17,9 @@ class TestUIParts(unittest.TestCase):
         pygame.init()
         self.renderer = Renderer(800, 600)
         self.screen = pygame.Surface((800, 600))
+
+    def tearDown(self):
+        pygame.quit()
     
     def test_card_render(self):
         card = Card(14, 0)

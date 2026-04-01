@@ -134,8 +134,6 @@ class BigTwoApp:
         self.bg_effect = BackgroundEffect(self.width, self.height, color=self.renderer.glow_color)
         self.particle_effects.clear()
         self.glow_effects.clear()
-        # 【關鍵】重置全局粒子計數（防止長時間對局造成計數不同步）
-        ParticleEffect.reset_global_count()
 
     def _emit_center_play_effect(self):
         # 已停用：中間動態特效會影響流暢度
