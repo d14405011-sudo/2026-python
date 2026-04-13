@@ -2,8 +2,8 @@
 
 ## 我怎麼使用 AI
 
-1. 先讀 week-07 的 HOMEWORK.md，整理出必做功能：檔案 I/O、EOF、namedtuple、sorted、Counter、defaultdict、TDD。
-2. 請 AI 協助我建立 week-07/solutions/1114405011-HW 的作業檔案結構與測試骨架。
+1. 先讀 weeks/week-07 的 HOMEWORK.md，整理出必做功能：檔案 I/O、EOF、namedtuple、sorted、Counter、defaultdict、TDD。
+2. 請 AI 協助我建立 weeks/week-07/solutions/1114405011 的作業檔案結構與測試骨架。
 3. 依需求完成 chibi_battle.py、chibi_battle_easy.py、test_chibi.py，並補上 generals.txt、battles.txt、TEST_LOG.md。
 4. 最後用 unittest 執行測試，確認資料讀取、戰鬥邏輯、統計與報告輸出流程都可運作。
 
