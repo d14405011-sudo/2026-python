@@ -8,10 +8,18 @@
 # range() 不支援浮點數步長，使用 yield 可以模擬實現
 def frange(start, stop, step):
     """生成從 start 到 stop 的浮點數序列，步長為 step"""
+    if step == 0:
+        raise ValueError("step must not be zero")
+
     x = start
-    while x < stop:
-        yield x  # 暫停執行，返回當前值 x，下次呼叫 next() 會從這裡繼續
-        x += step
+    if step > 0:
+        while x < stop:
+            yield x  # 暫停執行，返回當前值 x，下次呼叫 next() 會從這裡繼續
+            x += step
+    else:
+        while x > stop:
+            yield x  # 暫停執行，返回當前值 x，下次呼叫 next() 會從這裡繼續
+            x += step
 
 result = list(frange(0, 2, 0.5))
 print(f"frange(0, 2, 0.5): {result}")
