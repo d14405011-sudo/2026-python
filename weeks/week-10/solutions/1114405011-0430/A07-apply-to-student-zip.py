@@ -30,10 +30,25 @@ from pathlib import Path
 # ── 5.11 / 5.12 找到資料檔 ─────────────────────────────
 # 取得目前這個 Python 腳本（__file__）的絕對路徑，並抓出它的父目錄（所在資料夾）
 HERE = Path(__file__).resolve().parent
-# 透過路徑相加往上找 3 層，定位到 assets 資料夾內的壓縮檔
-ZIP_PATH = HERE.parent.parent.parent / "assets" / "npu-stu-109-114-anon.zip"
-# 檢查檔案是否存在，如果檔案不存在則會觸發 AssertionError
-assert ZIP_PATH.exists(), f"找不到資料：{ZIP_PATH}"
+
+
+def _find_repo_root_with_assets(start: Path) -> Path:
+    """
+    從目前腳本所在目錄一路往上找，回傳第一個包含 assets/ 的目錄。
+    這樣可避免用固定往上幾層的方式，導致路徑在不同目錄深度下失效。
+    """
+    for candidate in (start, *start.parents):
+        if (candidate / "assets").is_dir():
+            return candidate
+    raise FileNotFoundError(f"找不到包含 assets 目錄的專案根目錄：{start}")
+
+
+REPO_ROOT = _find_repo_root_with_assets(HERE)
+# 先找到專案根目錄，再定位到 assets 資料夾內的壓縮檔
+ZIP_PATH = REPO_ROOT / "assets" / "npu-stu-109-114-anon.zip"
+# 檢查檔案是否存在；若不存在，明確拋出 FileNotFoundError
+if not ZIP_PATH.exists():
+    raise FileNotFoundError(f"找不到資料：{ZIP_PATH}")
 print("資料來源:", ZIP_PATH.name)
 
 

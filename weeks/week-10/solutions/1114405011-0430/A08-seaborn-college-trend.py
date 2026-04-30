@@ -32,8 +32,10 @@ _CJK_FONTS = {
 
 def _apply_cjk_font():
     """sns.set_theme 會重設 rcParams，需要在它之後再套一次。"""
-    # 將找到的中文字型加入到 matplotlib 的字型清單最前端，確保優先套用
-    plt.rcParams["font.sans-serif"] = _CJK_FONTS + plt.rcParams["font.sans-serif"]
+    # 先移除目前清單中已存在的 CJK 字型，再把偏好字型插到最前端，避免重複累加
+    current_fonts = list(plt.rcParams.get("font.sans-serif", []))
+    remaining_fonts = [font for font in current_fonts if font not in _CJK_FONTS]
+    plt.rcParams["font.sans-serif"] = _CJK_FONTS + remaining_fonts
     # 設定主要字體系列為無襯線字型
     plt.rcParams["font.family"] = "sans-serif"
     # 解決 matplotlib 畫負號 (minus sign) 時會顯示為方塊的編碼問題
@@ -63,12 +65,22 @@ DEPT_TO_COLLEGE = {
 }
 
 # ── 5.11 定位資料 ─────────────────────────────────────
+def _find_repo_root_with_assets(start: Path) -> Path:
+    """自目前檔案位置往上搜尋，找到包含 assets/ 的專案根目錄。"""
+    for candidate in (start, *start.parents):
+        if (candidate / "assets").is_dir():
+            return candidate
+    raise FileNotFoundError(f"找不到包含 assets 資料夾的專案根目錄：{start}")
+
+
 # 取得目前執行 Python 檔案所在的資料夾絕對路徑
 HERE = Path(__file__).resolve().parent
-# 往上推三層資料夾，並進入 "assets" 資料夾組合出 ZIP 檔的完整路徑
-ZIP_PATH = HERE.parent.parent.parent / "assets" / "npu-stu-109-114-anon.zip"
-# 防呆機制：確保指向的 ZIP 檔案確實存在，否則會拋出 AssertionError 例外
-assert ZIP_PATH.exists(), f"找不到：{ZIP_PATH}"
+# 往上搜尋包含 "assets" 的專案根目錄，再組合出 ZIP 檔的完整路徑
+REPO_ROOT = _find_repo_root_with_assets(HERE)
+ZIP_PATH = REPO_ROOT / "assets" / "npu-stu-109-114-anon.zip"
+# 防呆機制：明確檢查 ZIP 檔案是否存在，避免在 -O 模式下略過檢查
+if not ZIP_PATH.exists():
+    raise FileNotFoundError(f"找不到：{ZIP_PATH}")
 
 
 # ── 5.7 + 5.6 + 5.1 讀 zip 內所有 CSV 成一張 long-form 表 ─
