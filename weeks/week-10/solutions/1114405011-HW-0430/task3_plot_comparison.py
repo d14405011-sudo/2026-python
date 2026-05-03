@@ -8,7 +8,7 @@
 #   Bonus 3 — 創意延伸：雙圖表版面（上：各操作耗時 + 標註；下：分組比較讀取 vs 寫入）
 #             + 圖底附加結論摘要文字方塊
 #
-# 需要：pip install seaborn matplotlib
+# 需要：pip install pandas seaborn matplotlib
 
 import os
 import platform
@@ -58,7 +58,9 @@ df_grouped = (
 # ── Bonus 1 + 2 + 3：繪製雙子圖版面 ──────────────────────
 def plot_timing(df: pd.DataFrame, df_grouped: pd.DataFrame, output_path: str) -> None:
     """使用 seaborn 繪製雙子圖：上為各函式耗時長條圖；下為讀取 vs 寫入分組比較。"""
-    os.makedirs(os.path.dirname(output_path), exist_ok=True)
+    output_dir = Path(output_path).parent
+    if output_dir != Path("."):
+        output_dir.mkdir(parents=True, exist_ok=True)
 
     # Bonus 1 — seaborn 主題：淡灰底格線 + 纖細框線
     sns.set_theme(style="whitegrid", font_scale=1.05)

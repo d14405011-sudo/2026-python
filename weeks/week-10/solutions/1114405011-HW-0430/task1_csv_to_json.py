@@ -12,8 +12,10 @@ from pathlib import Path
 
 # ── 路徑設定 ─────────────────────────────────────────────
 HERE = Path(__file__).resolve().parent
-# CSV 路徑：從 week-10/solutions/1114405011-HW-0430 往上三層 → 2026-python/assets/stu-data/
-CSV_PATH = HERE.parent.parent.parent.parent / "assets" / "stu-data" / "113年新生資料庫.csv"
+# 專案根目錄：從 week-10/solutions/1114405011-HW-0430 往上四層 → 2026-python/
+PROJECT_ROOT = HERE.parents[3]
+# CSV 路徑：2026-python/assets/stu-data/113年新生資料庫.csv
+CSV_PATH = PROJECT_ROOT / "assets" / "stu-data" / "113年新生資料庫.csv"
 OUTPUT_DIR = HERE / "output"
 OUTPUT_JSON = OUTPUT_DIR / "students.json"
 
