@@ -72,7 +72,7 @@
 
 ## 今天任務
 
-因為 CPE 是要當場打程式設計出來，所以請手動把簡單版本程式在 `week-#/solutions/{學號}` 中打一遍你的程式，並進行測試。
+因為 CPE 是要當場打程式設計出來，所以請手動把簡單版本程式在 `weeks/week-12/solutions/{學號}` 中打一遍你的程式，並進行測試。
 
 以下是送出標準
 - 參考 [GITHUB_WORKFLOW](GITHUB_WORKFLOW.md) 將程式 PR 出來
