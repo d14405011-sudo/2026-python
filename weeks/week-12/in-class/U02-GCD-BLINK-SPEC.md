@@ -206,7 +206,7 @@ ring_extent = -(360 × remaining / interval)
 **目標**：從 4 個間隔值計算並顯示 GCD 和 LCM。
 
 **驗收**：
-- [ ] 視窗顯示「GCD = 2」和「LCM = 12」（預設間隔 2,3,4,6）
+- [ ] 視窗顯示「GCD = 1」和「LCM = 12」（預設間隔 2,3,4,6）
 - [ ] 加入 4 個 `Spinbox`，改變數值後 GCD/LCM 立即更新
 
 **Prompt 重點**：
