@@ -22,6 +22,7 @@ class TestQ10922HandTyped(unittest.TestCase):
 
     def test_degree(self):
         self.assertEqual(mod.nine_degree("9"), 1)
+        self.assertEqual(mod.nine_degree("18"), 1)
         self.assertEqual(mod.nine_degree("999"), 2)
         self.assertIsNone(mod.nine_degree("10"))
 

@@ -25,7 +25,9 @@ def nine_degree(num_text: str) -> Optional[int]:
     if first_sum % 9 != 0:
         return None
 
-    degree = 1
+    # 對於非 "9" 的輸入，從原字串做第一次位數和這一步
+    # 也必須計入 9-degree；例如 "18" -> 9，degree 應為 2。
+    degree = 2
     current = first_sum
 
     # 持續把數字做位數和，直到成為單一位數。

@@ -14,17 +14,20 @@ class TestQ10922(unittest.TestCase):
     def test_nine_degree_values(self):
         self.assertEqual(nine_degree("9"), 1)
         self.assertEqual(nine_degree("999"), 2)
+        self.assertEqual(nine_degree("18"), 2)
         self.assertIsNone(nine_degree("10"))
 
         self.assertEqual(mod_easy.nine_degree_easy("9"), 1)
         self.assertEqual(mod_easy.nine_degree_easy("999"), 2)
+        self.assertEqual(mod_easy.nine_degree_easy("18"), 2)
         self.assertIsNone(mod_easy.nine_degree_easy("10"))
 
     def test_solve_all(self):
-        src = "\n".join(["999", "189", "10", "0"])
+        src = "\n".join(["999", "189", "18", "10", "0"])
         want = "\n".join([
             "9-degree of 999 is 2.",
             "9-degree of 189 is 2.",
+            "9-degree of 18 is 2.",
             "10 is not a multiple of 9.",
         ])
         self.assertEqual(solve_all(src), want)
