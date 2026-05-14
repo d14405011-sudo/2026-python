@@ -28,15 +28,15 @@ class Circle:
         self._radius = value
 
     @property
-    # area 只有 getter，沒有對應 setter，所以是唯讀屬性。
-    # 優點：不需額外儲存 area，每次讀取時即時計算，避免資料不同步。
     def area(self):             # 唯讀屬性（沒有 setter）
+        # area 只有 getter，沒有對應 setter，所以是唯讀屬性。
+        # 優點：不需額外儲存 area，每次讀取時即時計算，避免資料不同步。
         import math
         return math.pi * self._radius ** 2
 
     @property
-    # diameter 同樣是計算型屬性，隨半徑變動自動反映新結果。
     def diameter(self):
+        # diameter 同樣是計算型屬性，隨半徑變動自動反映新結果。
         return self._radius * 2
 
 
