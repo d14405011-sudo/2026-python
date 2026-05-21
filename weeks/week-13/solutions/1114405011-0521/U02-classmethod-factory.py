@@ -34,6 +34,10 @@ class Point:
     @classmethod
     def from_list(cls, lst):
         """從 [3, 4] 這種 list 建立 Point"""
+        if not isinstance(lst, (list, tuple)):
+            raise TypeError("lst must be a list or tuple with exactly 2 elements")
+        if len(lst) != 2:
+            raise ValueError("lst must contain exactly 2 elements")
         return cls(lst[0], lst[1])
 
     @classmethod

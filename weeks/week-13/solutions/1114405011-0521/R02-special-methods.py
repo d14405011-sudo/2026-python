@@ -74,10 +74,16 @@ class Score:
         return f"Score({self.value})"
 
     def __eq__(self, other):
+        # 先檢查型別，避免與非 Score 物件比較時出錯
+        if not isinstance(other, Score):
+            return NotImplemented
         # 只要分數一樣就算相等
         return self.value == other.value
 
     def __lt__(self, other):
+        # 先檢查型別，避免與非 Score 物件比較時出錯
+        if not isinstance(other, Score):
+            return NotImplemented
         # 分數小於對方
         return self.value < other.value
 

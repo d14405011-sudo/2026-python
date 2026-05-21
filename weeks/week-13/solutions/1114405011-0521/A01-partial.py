@@ -107,14 +107,14 @@ print()   # 最後補一個換行
 
 
 # lambda 與 partial 寫法比較：兩者都能產生平方函數
-double_lambda  = lambda x: power(x, 2)        # lambda 寫法
-double_partial = partial(power, exp=2)         # partial 寫法
+square_lambda  = lambda x: power(x, 2)         # lambda 寫法
+square_partial = partial(power, exp=2)         # partial 寫法
 
 
 print("\n=== lambda vs partial ===")
 # 兩種寫法結果都一樣
-print([double_lambda(n)  for n in range(1, 6)])   # [1, 4, 9, 16, 25]
-print([double_partial(n) for n in range(1, 6)])   # [1, 4, 9, 16, 25]
+print([square_lambda(n)  for n in range(1, 6)])   # [1, 4, 9, 16, 25]
+print([square_partial(n) for n in range(1, 6)])   # [1, 4, 9, 16, 25]
 
 # 記憶重點 ──────────────────────────────────────────────────
 # partial(函數, 固定的參數) → 回傳新函數，只剩剩餘的參數要填
